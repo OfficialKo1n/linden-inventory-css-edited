@@ -1,6 +1,8 @@
 # linden-inventory-css-edited
 https://github.com/thelindat/linden_inventory
 
+Dont forget to remove hotkey 5 on client/main.lua. since i just use 4 hotbar
+
 Dont forget to load image on your fxmanifest
 
     "html/give.png", 
