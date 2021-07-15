@@ -200,19 +200,7 @@ HSN.RefreshInventory = function(data) {
 				$(".inventory-main-leftside").find("[inventory-slot="+item.slot+"]").data("ItemData", item);
 			}
 		}
-	});
-	$(".progressLeftLabel").html(weightFormat(totalkg/1000, false, true)+'/'+weightFormat(maxWeight/1000, false))
-	$( function() {
-		$( "#progressbarLeft" ).progressbar({
-			value: 100,
-			max: 100
-		})
-		let progressbar = $( "#progressbarLeft" )
-		let progressbarValue = progressbar.find( ".ui-progressbar-value" )
-		let value = totalkg/maxWeight
-		let color = colorMixer([242, 162, 101], [104, 159, 56], value)
-		progressbarValue.css({"background": color, "width": (value*100) +"%"})
-	});
+	})
 }
 
 
