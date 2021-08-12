@@ -23,3 +23,34 @@ If you want the Give Button works to show nearby players
 
 go to client/main.lua and replace giveitem nuicallback with this
 
+```
+RegisterNUICallback('giveItem', function(data, cb)
+    if data.player then
+        if data.inv == 'Playerinv' then
+            if data.amount >= 1 then
+                TriggerServerEvent('linden_inventory:giveItem', data, data.player)
+                TriggerEvent('randPickupAnim')
+            else 
+				exports['rv-notify']:Icon({
+					style = 'error', 
+					title = 'Inventory',
+					duration = 3000, 
+					message = _U('give_amount'),
+					icon = "fas fa-archive"
+				}) end
+        end
+    else
+        local players = ESX.Game.GetPlayersInArea(playerCoords, 3.0)
+        if players ~= nil then
+            for i = 1, #players do
+                players[i] = GetPlayerServerId(players[i])
+            end
+            SendNUIMessage({
+                message = 'nearPlayers',
+                players = players,
+                data = data
+            })
+        end
+    end
+end)
+```
