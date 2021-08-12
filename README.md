@@ -31,7 +31,7 @@ RegisterNUICallback('giveItem', function(data, cb)
                 TriggerServerEvent('linden_inventory:giveItem', data, data.player)
                 TriggerEvent('randPickupAnim')
             else 
-				exports['rv-notify']:Icon({
+				exports['t-notify']:Icon({
 					style = 'error', 
 					title = 'Inventory',
 					duration = 3000, 
