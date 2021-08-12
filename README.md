@@ -3,6 +3,8 @@ https://github.com/thelindat/linden_inventory
 
 This css edited for Revolution Indonesia Roleplay
 
+For now, its just works for 1080 Resolution, will update it later for 1080 below
+
 Dont forget to remove hotkey 5 on client/main.lua. since i just use 4 hotbar
 
 Dont forget to load image on your fxmanifest
