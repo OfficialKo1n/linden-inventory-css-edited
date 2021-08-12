@@ -33,14 +33,14 @@ body {
 	width: 590px;
 	height: 450px;
 	overflow: auto;
-	direction: rtl;
+	direction: ltr;
 	margin-left: -4px;
 }
 
 .ItemBoxes {
 	position: relative;
 	width: 112px;
-	height: 120px;
+	height: 130px;
 	background-color: rgba(0, 0, 0, 0.2);
 	float: left;
 	top: -2px;
@@ -63,11 +63,8 @@ body {
 	text-align: center;
 	line-height: 14px;
 	vertical-align: middle;
-	background-color: white;
-	color: black;
+	color: white;
 	text-shadow: none;
-	border: 0.09vh solid rgba(80,80,80,0.2);
-    border-radius: 5px;
 }
 
 .inventory-main-leftside > .ItemBoxes:nth-child(2):after {
@@ -84,11 +81,8 @@ body {
 	text-align: center;
 	line-height: 14px;
 	vertical-align: middle;
-	background-color: white;
-	color: black;
+	color: white;
 	text-shadow: none;
-	border: 0.09vh solid rgba(80,80,80,0.2);
-    border-radius: 5px;
 }
 
 .inventory-main-leftside > .ItemBoxes:nth-child(3):after {
@@ -105,11 +99,8 @@ body {
 	text-align: center;
 	line-height: 14px;
 	vertical-align: middle;
-	background-color: white;
-	color: black;
+	color: white;
 	text-shadow: none;
-	border: 0.09vh solid rgba(80,80,80,0.2);
-    border-radius: 5px;
 }
 
 .inventory-main-leftside > .ItemBoxes:nth-child(4):after {
@@ -126,14 +117,9 @@ body {
 	text-align: center;
 	line-height: 14px;
 	vertical-align: middle;
-	background-color: white;
-	color: black;
+	color: white;
 	text-shadow: none;
-	border: 0.09vh solid rgba(80,80,80,0.2);
-    border-radius: 5px;
 }
-
-
 
 .itemboxes-container {
 	height: 130px;
@@ -164,7 +150,7 @@ body {
 }
 
 .hotbar-container {
-	height: 110px;
+	height: 130px;
 	min-width: 110px;
 	width: fit-content;
 	position: absolute;
@@ -251,25 +237,26 @@ body {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	background-color: rgba(12, 12, 12, 0.3);
-	height: fit-content;
+	background-color: rgba(100, 41, 41, 0.9);
+	height: 1.9vh;
 	padding: 2px 0 2px 0;
 	font-size: 10px;
 	text-align: center;
 	text-transform: uppercase;
 	font-variant: small-caps;
-	outline: 1px solid rgba(33,33,33,0.4);
-	outline-offset: -1px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 .item-slot-durability-bar {
 	position: absolute;
-	height: 5px;
-	width: 112%;
-	top: -4px;
-	background-color: #1d1d1de8;
-	outline: 1px solid rgba(38,38,38,0.2);
-	outline-offset: -1px;
+	height: 8px;
+
+	width: 590px;
+	bottom: 0px;
+	background-color: rgba(17, 29, 83, 0.623);
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 .iteminfo {
@@ -330,12 +317,30 @@ p {
 	height: 40px;
 	width: 150px;
 	top: 30%;
-	background-color:rgba(48, 71, 94, 0.9);
+	background-color:rgba(100, 41, 41, 0.9);
 	color: white;
 	text-align: center;
 	transition: 0.2s ease-in-out all;
 	border: 0.09vh solid rgba(80,80,80,0.2);
     border-radius: 5px;
+}
+
+.nearbyPlayerButton {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+    width: 150px;
+    bottom: 10%;
+    color: white;
+    background-color:rgba(48, 71, 94, 0.9);
+    transition: 0.2s ease-in-out all;
+    border: 0.09vh solid rgba(80,80,80,0.2);
+    border-radius: 5px;
+}
+
+.nearbyPlayerButton:hover {
+    background-color: rgba(218, 0, 0, 0.2);
 }
 
 .controls-div {
@@ -385,7 +390,7 @@ p {
 	width: 150px;
 	top: 40%;
 	color: white;
-	background-color:rgba(48, 71, 94, 0.9);
+	background-color:rgba(100, 41, 41, 0.9);
 	transition: 0.2s ease-in-out all;
 	border: 0.09vh solid rgba(80,80,80,0.2);
     border-radius: 5px;
@@ -404,7 +409,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: rgba(48, 71, 94, 0.7);
+	background-color: rgba(100, 41, 41, 0.7);
 }
 
 .ui-draggable-dragging {
@@ -418,10 +423,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .ui-progressbar {
 	background: rgba(0,0,0,0.5);
-	width: 580px;
-	margin-left: 1px;
+	width: 550px;
+	margin-left: 30px;
 	height: 25px;
-	border-radius: 5px;
+	border-radius: 8px;
 	border: 1px solid rgba(0,0,0,0.5);
 }
 
@@ -440,7 +445,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .progressLeftLabel {
 	position: absolute;
-	left: 0.5%;
+	left: 33%;
 	top: 27px;
 	font-size: 15px;
 	color: #fff;
@@ -451,11 +456,244 @@ input[type=number]::-webkit-outer-spin-button {
 
 .progressRightLabel {
 	position: absolute;
-	right: 34%;
+	right: 1%;
 	top: 27px;
 	font-size: 15px;
 	color: #fff;
 	font-weight: bold;
 	padding: 5px;
 	border-radius: 5px;
-} 
+}
+
+.bottom-buttons {
+    bottom: 0;
+    display: flex;
+    height: 6%;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+.bottom-button {
+    background: rgba(100, 41, 41, 0.9);
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    font-size: 2vh;
+    font-weight: 700;
+    height: 100%;
+    text-align: center;
+    width: 3%;
+}
+
+.help-button {
+    font-size: 2.15vh;
+}
+
+.setting {
+    background-color: rgba(100, 41, 41, 0.9);
+    border-radius: 10px;
+    color: rgba(220, 220, 220, 1);
+    display: none;
+    font-size: 1.5vh;
+    left: 59%;
+    padding: 2%;
+    position: absolute;
+    top: 7%;
+    width: 30%;
+}
+ 
+
+@media only screen and (max-width: 1280px) {
+
+	.setting {
+		background-color: rgba(100, 41, 41, 0.9);
+		border-radius: 10px;
+		color: rgba(220, 220, 220, 1);
+		display: none;
+		font-size: 1.5vh;
+		left: 10%;
+		padding: 2%;
+		position: absolute;
+		top: 50%;
+		width: 20%;
+	}
+
+	.inventory-main {
+		display: none;
+		position: fixed;
+		margin: auto;
+		opacity: 0.9;
+		overflow: hidden;
+		zoom: 98%;
+	}
+
+	.item-slot-durability-bar {
+		position: absolute;
+		height: 8px;
+	
+		width: 550px;
+		bottom: 0px;
+		background-color: rgba(17, 29, 83, 0.623);
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
+
+	.inventory-main-leftside {
+		width: 550px;
+		height: 410px;
+		overflow: auto;
+		direction: ltr;
+	}
+	
+	.inventory-main-rightside {
+		width: 550px;
+		height: 410px;
+		overflow: auto;
+		direction: ltr;
+	}
+	.ItemBoxes {
+		position: relative;
+		width: 100px;
+		height: 108px;
+		background-color: rgba(0, 0, 0, 0.2);
+		float: left;
+		top: -2px;
+		margin: 2px 1px 0 1px;
+		border: 0.09vh solid rgba(80,80,80,0.2);
+		border-radius: 10px;
+		left: 4%;
+	}
+	.ui-progressbar {
+		background: rgba(0,0,0,0.5);
+		width: 518px;
+		margin-left: 30px;
+		height: 25px;
+		border-radius: 8px;
+		border: 1px solid rgba(0,0,0,0.5);
+	}
+	
+	.progressLeftLabel {
+		position: absolute;
+		left: 33%;
+		top: 27px;
+		font-size: 15px;
+		color: #fff;
+		font-weight: bold;
+		padding: 5px;
+		border-radius: 5px;
+	}
+	
+	.progressRightLabel {
+		position: absolute;
+		right: 1%;
+		top: 27px;
+		font-size: 15px;
+		color: #fff;
+		font-weight: bold;
+		padding: 5px;
+		border-radius: 5px;
+	} 
+
+	.iteminfo {
+		display: none;
+		position: absolute;
+		padding: 0 10px 0 10px;
+		font-weight: 500;
+		font-size: 12px;
+		top: 80%;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		width: 20%;
+		min-width: 300px;
+		user-select: all !important;
+		color: white;
+	}
+}
+
+@media only screen and (max-width: 1366px) {
+	.inventory-main {
+		display: none;
+		position: fixed;
+		margin: auto;
+		opacity: 0.9;
+		overflow: hidden;
+		zoom: 98%;
+	}
+
+	.inventory-main-leftside {
+		width: 550px;
+		height: 410px;
+		overflow: auto;
+		direction: ltr;
+	}
+	
+	.inventory-main-rightside {
+		width: 550px;
+		height: 410px;
+		overflow: auto;
+		direction: ltr;
+	}
+	.ItemBoxes {
+		position: relative;
+		width: 100px;
+		height: 108px;
+		background-color: rgba(0, 0, 0, 0.2);
+		float: left;
+		top: -2px;
+		margin: 2px 1px 0 1px;
+		border: 0.09vh solid rgba(80,80,80,0.2);
+		border-radius: 10px;
+		left: 4%;
+	}
+	.ui-progressbar {
+		background: rgba(0,0,0,0.5);
+		width: 518px;
+		margin-left: 30px;
+		height: 25px;
+		border-radius: 8px;
+		border: 1px solid rgba(0,0,0,0.5);
+	}
+	
+	.progressLeftLabel {
+		position: absolute;
+		left: 33%;
+		top: 27px;
+		font-size: 15px;
+		color: #fff;
+		font-weight: bold;
+		padding: 5px;
+		border-radius: 5px;
+	}
+	
+	.progressRightLabel {
+		position: absolute;
+		right: 1%;
+		top: 27px;
+		font-size: 15px;
+		color: #fff;
+		font-weight: bold;
+		padding: 5px;
+		border-radius: 5px;
+	}
+	 
+
+	.iteminfo {
+		display: none;
+		position: absolute;
+		padding: 0 10px 0 10px;
+		font-weight: 500;
+		font-size: 12px;
+		top: 80%;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		width: 20%;
+		min-width: 300px;
+		user-select: all !important;
+		color: white;
+	}
+	
+}
+  
