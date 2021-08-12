@@ -15,4 +15,4 @@ Put Weight.png to html/images
 
 just edited css for linden-inventory. inspired by NoPixel.3.0
 
-<href https://i.imgur.com/p6OwrvT.png >
+https://i.imgur.com/p6OwrvT.png
