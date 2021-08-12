@@ -23,7 +23,7 @@ If you want the Give Button works to show nearby players
 
 go to client/main.lua and replace giveitem nuicallback with this
 
-RegisterNUICallback('giveItem', function(data, cb)
+""RegisterNUICallback('giveItem', function(data, cb)
     if data.player then
         if data.inv == 'Playerinv' then
             if data.amount >= 1 then
@@ -51,4 +51,4 @@ RegisterNUICallback('giveItem', function(data, cb)
             })
         end
     end
-end)
+end)""
