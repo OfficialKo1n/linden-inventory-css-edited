@@ -9,6 +9,7 @@
 	<body>
         <div class="inventory-main">
 			<table style='width: 100%;'>
+				<img style="margin-top:1.8%;width:1.8%;left:0px;position:absolute;display:left"src="images/weight.png">
 				<tr>
 					<td><table style='width: 509px; top: 0; height: 20px;'><tr><td class='playername' style='text-align:left'></td><td class='leftside-weight' style='height: 100%;'><div class='progressLeftLabel'></div></td></tr></table>
 						<div class='leftside-weight'><div id="progressbarLeft"></div></div>
@@ -25,10 +26,55 @@
 	
 						<button class="close">CLOSE</button>
 					</td>
+					<img style="margin-top:1.8%;width:1.8%;right:39%;position:absolute;display:left"src="images/weight.png">
 					<td><div id = "right-inv" class= "inventory-main-rightside"></div></td>
 				</tr>
 			</table>
+
+			<div class="bottom-buttons">
+				<span
+					class="bottom-button help-button"
+					onmouseover="$('.setting').fadeIn();"
+					onmouseout="$('.setting').fadeOut();"
+				>
+					?
+				</span>
+			</div>
+
         </div>
+
+		<div class="setting">
+			<h3>About:</h3>
+			<p>
+				<li>This is Inventory System Modified for Revolution Roleplay</li>
+			</p>
+			<h3>Keybinds:</h3>
+			<ul>
+				<li>Shift + Click: Moves half of the stack to opposite inventory.</li>
+				<li>Ctrl + Click: Moves amount inputted in AMOUNT to opposite inventory.</li>
+				<li>Left Click: Normal Drag (configurable to be like Right Click in settings)</li>
+				<li>Right Click: No Hold to Drag</li>
+				<li>Middle Click: Uses Item</li>
+				<hr />
+				<li>Scroll Wheel: While hovering over AMOUNT will increase/decrease value</li>
+			</ul>
+			<h3>Shops:</h3>
+			<p>
+				<li>Put in the amount you want to buy in the AMOUNT field and then drag the shop item into your inventory.</li>
+			</p>
+
+			<h3>Item Durability:</h3>
+			<p>
+				<li>Almost all items will decay over time (including weapons) The bar under each item will slowly decrease in size as it</li>
+				<li>decays more and more, then eventually fade to a reddish color. Once an item is fully destroyed, it will have a solid
+					red bar.</li>
+			</p>
+		</div>
+
+		<div id="dialog">
+			<div id="nearPlayers">
+		   </div>
+		</div>
 
 		<div class="iteminfo">
 			<div class="iteminfo-label"></div>
