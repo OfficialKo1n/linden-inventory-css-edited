@@ -131,7 +131,7 @@ window.addEventListener('message', function(event) {
         $(".nearbyPlayerButton").click(function () {
             $("#dialog").hide();
             player = $(this).data("player");            
-            $.post("https://rv-inventory/giveItem", JSON.stringify({
+            $.post("https://linden_inventory/giveItem", JSON.stringify({
                 item: event.data.data.item,
                 inv: event.data.data.inv,
                 amount: event.data.data.amount,
@@ -254,7 +254,7 @@ HSN.RefreshInventory = function(data) {
 
 
 HSN.InventoryMessage = function(message, type) {
-	$.post("https://rv-inventory/notification", JSON.stringify({
+	$.post("https://linden_inventory/notification", JSON.stringify({
 		message: message,
 		type: type
 	}));
@@ -447,7 +447,7 @@ function DragAndDrop() {
 							let location = $(this).data("location")
 							count = parseInt($("#item-count").val()) || 0
 							if (Item != undefined && count >= 0) {
-								$.post("https://rv-inventory/BuyFromShop", JSON.stringify({
+								$.post("https://linden_inventory/BuyFromShop", JSON.stringify({
 									data: Item,
 									location: location,
 									count: count
@@ -510,7 +510,7 @@ $(".use").droppable({
 		fromData = ui.draggable.data("ItemData");
 		fromInventory = ui.draggable.parent();
 		inv = fromInventory.data('invTier')
-		$.post("https://rv-inventory/useItem", JSON.stringify({
+		$.post("https://linden_inventory/useItem", JSON.stringify({
 			item: fromData,
 			inv: inv
 		}));
@@ -530,7 +530,7 @@ $(".give").droppable({
 		inv = fromInventory.data('invTier')
 		if (fromData !== undefined) {
 			if (inv == 'Playerinv' && count >= 0) {
-				$.post("https://rv-inventory/giveItem", JSON.stringify({
+				$.post("https://linden_inventory/giveItem", JSON.stringify({
 					item: fromData,
 					inv: inv,
 					amount: count
@@ -547,7 +547,7 @@ $(document).on("click", ".ItemBoxes", function(e){
 		let location = $(this).data("location")
 		count = parseInt($("#item-count").val()) || 0
 		if (Item != undefined && count >= 0) {
-			$.post("https://rv-inventory/BuyFromShop", JSON.stringify({
+			$.post("https://linden_inventory/BuyFromShop", JSON.stringify({
 				data: Item,
 				location: location,
 				count: count
@@ -624,7 +624,7 @@ $(".inventory-main").on("mouseenter", ".ItemBoxes", function(e){
 HSN.CloseInventory = function() {
 	let data = {type: rightinvtype, invid: rightinventory}
 	if (rightinvtype == 'bag') {data.weight = righttotalkg, data.slot = rightinvslot}
-	$.post('https://rv-inventory/exit', JSON.stringify(data));
+	$.post('https://linden_inventory/exit', JSON.stringify(data));
 	Display(false)
 	return
 }
@@ -681,7 +681,7 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 					fromInventory.find("[inventory-slot="+fromSlot+"]").find(".item-slot-durability-bar").css({"background-color":durability2[0],"width":durability2[1]});
 					toInventory.find("[inventory-slot="+toSlot+"]").data("ItemData", fromItem);
 					fromInventory.find("[inventory-slot="+fromSlot+"]").data("ItemData", toItem);
-					$.post("https://rv-inventory/saveinventorydata", JSON.stringify({
+					$.post("https://linden_inventory/saveinventorydata", JSON.stringify({
 						type: "swap",
 						toSlot: toSlot,
 						frominv: inv,
@@ -707,7 +707,7 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 					newItemData.price = toItem.price
 					toInventory.find("[inventory-slot="+toSlot+"]").html('<div class="item-slot-img"><img src="images/'+toimage+'.png'+'" alt="'+toItem.name+'" /></div><div class="item-slot-count"><p>'+numberFormat(newcount, toItem.name)+' '+weightFormat(toItem.weight/1000 * newcount)+'</p></div><p><div class="item-slot-label">'+toItem.label+'</div>');
 					toInventory.find("[inventory-slot="+toSlot+"]").data("ItemData", newItemData);
-					$.post("https://rv-inventory/saveinventorydata", JSON.stringify({
+					$.post("https://linden_inventory/saveinventorydata", JSON.stringify({
 						type: "freeslot",
 						frominv: inv,
 						toinv: inv2,
@@ -742,7 +742,7 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 					toInventory.find("[inventory-slot="+toSlot+"]").data("ItemData", newItemData);
 					fromInventory.find("[inventory-slot="+fromSlot+"]").html('<div class="item-slot-img"><img src="images/'+fromimage+'.png'+'" alt="'+fromItem.name+'" /></div><div class="item-slot-count"><p>'+numberFormat(oldItemData.count, fromItem.name)+' '+weightFormat(fromItem.weight/1000 * newItemData.count)+'</p></div><p><div class="item-slot-label">'+fromItem.label+'</div>');
 					fromInventory.find("[inventory-slot="+fromSlot+"]").data("ItemData", oldItemData);
-					$.post("https://rv-inventory/saveinventorydata", JSON.stringify({
+					$.post("https://linden_inventory/saveinventorydata", JSON.stringify({
 						type: "split",
 						frominv: inv,
 						toinv: inv2,
@@ -762,7 +762,7 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 						toInventory.find("[inventory-slot="+toSlot+"]").html('<div class="item-slot-img"><img src="images/'+fromimage+'.png'+'" alt="'+fromItem.name+'" /></div><div class="item-slot-count"><p>'+numberFormat(fromItem.count, fromItem.name)+' '+weightFormat(fromItem.weight/1000 * fromItem.count)+'</p></div><p><div class="item-slot-label">'+fromItem.label+'</div>');
 						toInventory.find("[inventory-slot="+toSlot+"]").data("ItemData", fromItem);
 						fromInventory.find("[inventory-slot="+fromSlot+"]").data("ItemData", toItem);
-						$.post("https://rv-inventory/saveinventorydata", JSON.stringify({
+						$.post("https://linden_inventory/saveinventorydata", JSON.stringify({
 							type: "swap",
 							toSlot: toSlot,
 							frominv: inv,
@@ -781,7 +781,7 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 						fromInventory.find("[inventory-slot="+fromSlot+"]").html('<div class="item-slot-img"><img src="images/'+toimage+'.png'+'" alt="'+toItem.name+'" /></div><div class="item-slot-count"><p>'+numberFormat(toItem.count, toItem.name)+' '+weightFormat(toItem.weight/1000 * toItem.count)+'</p></div><p><div class="item-slot-label">'+toItem.label+'</div>');
 						fromInventory.find("[inventory-slot="+fromSlot+"]").data("ItemData", toItem);
 						toInventory.find("[inventory-slot="+toSlot+"]").data("ItemData", fromItem);
-						$.post("https://rv-inventory/saveinventorydata", JSON.stringify({
+						$.post("https://linden_inventory/saveinventorydata", JSON.stringify({
 							type: "swap",
 							toSlot: toSlot,
 							frominv: inv,
@@ -798,7 +798,7 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 						toInventory.find("[inventory-slot="+toSlot+"]").html('<div class="item-slot-img"><img src="images/'+fromimage+'.png'+'" alt="'+fromItem.name+'" /></div><div class="item-slot-count"><p>'+numberFormat(fromItem.count)+' '+weightFormat(fromItem.weight/1000 * fromItem.count)+'</p></div><p><div class="item-slot-label">'+fromItem.label+'</div>');
 						fromInventory.find("[inventory-slot="+fromSlot+"]").data("ItemData", toItem);
 						toInventory.find("[inventory-slot="+toSlot+"]").data("ItemData", fromItem);
-						$.post("https://rv-inventory/saveinventorydata", JSON.stringify({
+						$.post("https://linden_inventory/saveinventorydata", JSON.stringify({
 							type: "swap",
 							toSlot: toSlot,
 							frominv: inv,
@@ -821,7 +821,7 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 					toInventory.find("[inventory-slot="+toSlot+"]").find(".item-slot-durability-bar").css({"background-color":durability[0],"width":durability[1]});
 					toInventory.find("[inventory-slot="+toSlot+"]").data("ItemData", fromItem);
 					HSN.RemoveItemFromSlot(fromInventory,fromSlot)
-					$.post("https://rv-inventory/saveinventorydata", JSON.stringify({
+					$.post("https://linden_inventory/saveinventorydata", JSON.stringify({
 						type: "freeslot",
 						frominv: inv,
 						toinv: inv2,
@@ -862,7 +862,7 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 						fromInventory.find("[inventory-slot="+fromSlot+"]").data("ItemData", oldItemData);
 						toInventory.find("[inventory-slot="+toSlot+"]").html('<div class="item-slot-img"><img src="images/'+newImage+'.png'+'" alt="'+newItemData.name+'" /></div><div class="item-slot-count"><p>'+numberFormat(newItemData.count, newItemData.name)+' '+weightFormat(newItemData.weight/1000 * newItemData.count)+'</p></div><div class="item-slot-label">'+newItemData.label+'</div>');
 						toInventory.find("[inventory-slot="+toSlot+"]").data("ItemData", newItemData);
-						$.post("https://rv-inventory/saveinventorydata", JSON.stringify({
+						$.post("https://linden_inventory/saveinventorydata", JSON.stringify({
 							type: "split",
 							frominv: inv,
 							toinv: inv2,
@@ -878,7 +878,7 @@ SwapItems = function(fromInventory, toInventory, fromSlot, toSlot) {
 						HSN.RemoveItemFromSlot(fromInventory,fromSlot)
 						toInventory.find("[inventory-slot="+toSlot+"]").html('<div class="item-slot-img"><img src="images/'+fromimage+'.png'+'" alt="'+fromItem.name+'" /></div><div class="item-slot-count"><p>'+numberFormat(count, fromItem.name)+' '+weightFormat(fromItem.weight/1000 * count)+'</p></div><p><div class="item-slot-label">'+fromItem.label+'</div>');
 						toInventory.find("[inventory-slot="+toSlot+"]").data("ItemData", fromItem);
-						$.post("https://rv-inventory/saveinventorydata", JSON.stringify({
+						$.post("https://linden_inventory/saveinventorydata", JSON.stringify({
 							type: "freeslot",
 							frominv: inv,
 							toinv: inv2,
